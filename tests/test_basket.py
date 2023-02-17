@@ -2,8 +2,6 @@ from typing import Any
 from pageObjects.product_page import ProductPage
 from pageObjects.products_list_page import ProductsListPage
 from pageObjects.basket_page import BasketPage
-from selenium.webdriver.common.by import By
-from time import sleep
 
 class TestBasket:
 
