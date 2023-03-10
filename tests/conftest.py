@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from pageObjects.login_page import LoginPage
+from utils import config
 
 @pytest.fixture()
 def browser() -> webdriver:
@@ -11,8 +12,8 @@ def browser() -> webdriver:
 
 @pytest.fixture()
 def login_as_standard_user(browser) -> None:
-        browser.get("https://www.saucedemo.com/")
+        browser.get(config.url)
         login_page = LoginPage(browser)
-        login_page.set_user_name("standard_user")
-        login_page.set_password("secret_sauce")
+        login_page.set_user_name(config.standard_user_name)
+        login_page.set_password(config.standard_user_password)
         login_page.click_login_button()
