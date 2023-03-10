@@ -8,7 +8,8 @@ from utils import config
 def browser() -> webdriver:
     driver = webdriver.Chrome(service=Service('./chromedriver'))
     driver.maximize_window()
-    return driver
+    yield driver
+    driver.quit()
 
 @pytest.fixture()
 def login_as_standard_user(browser) -> None:
